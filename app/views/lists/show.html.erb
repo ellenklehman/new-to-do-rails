@@ -1,0 +1,24 @@
+<h1><%= @list.name %></h1>
+
+<h4>Here are the tasks for this list:</h4>
+
+<ul>
+  <% @list.tasks.each do |task| %>
+    <li>
+      <%= task.description %> |
+      <a href="/lists/<%= @list.id %>/tasks/<%= task.id %>/edit">Edit</a> |
+      <a href="/lists/<%= @list.id %>/tasks/<%= task.id %>"
+      data-confirm="You sure?"
+      data-method="delete"
+      rel="nofollow">Delete</a>
+    </li>
+  <% end %>
+</ul>
+
+<a href="/lists/<%= @list.id %>/tasks/new">Add a task</a>
+
+<p><a href="/lists/<%= @list.id %>"
+  data-confirm="You sure?"
+  data-method="delete"
+  rel="nofollow">Delete list</a></p>
+<p><a href="/lists">Return to lists</a></p>
