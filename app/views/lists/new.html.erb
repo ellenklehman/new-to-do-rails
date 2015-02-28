@@ -1,16 +1,10 @@
+<% content_for(:title, "New list | To Do") %>
+
 <h1>New list</h1>
 
-<% if @list.errors.any? %>
-  <h3>Please fix these errors:</h3>
-  <ul>
-    <% @list.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render('layouts/errors', :object => @list) %>
 
 <form action="/lists" method="post">
-  <label for="list_name">Name</label>
-  <input id="list_name" name="name" type="text">
+  <%= render('form') %>
   <button>Create List</button>
 </form>

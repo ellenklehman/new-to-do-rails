@@ -1,16 +1,10 @@
+<% content_for(:title, "New task | To Do") %>
+
 <h1>New task for <%= @task.list.name %></h1>
 
-<% if @task.errors.any? %>
-  <h3>Please fix these errors:</h3>
-  <ul>
-    <% @task.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render('layouts/errors', :object => @task) %>
 
 <form action="/lists/<%= @task.list.id %>/tasks" method="post">
-  <label for="description">Description</label>
-  <input id="description" name="description" type="text" value="<%= @task.description %>">
+  <%= render('form') %>
   <button>Add task</button>
 </form>
