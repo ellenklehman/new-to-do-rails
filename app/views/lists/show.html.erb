@@ -8,19 +8,19 @@
   <% @list.tasks.each do |task| %>
     <li>
       <%= task.description %> |
-      <a href="/lists/<%= @list.id %>/tasks/<%= task.id %>/edit">Edit</a> |
-      <a href="/lists/<%= @list.id %>/tasks/<%= task.id %>"
-      data-confirm="You sure?"
-      data-method="delete"
-      rel="nofollow">Delete</a>
+      <%= link_to "Edit", edit_list_task_path(@list.id, task.id), :class => "btn btn-default" %> |
+      <%= link_to "Delete", list_task_path(@list.id, task.id),
+                               :data => {:confirm => "Are you sure?",
+                               :method => "delete"},
+                               :class => "btn btn-danger" %>
     </li>
   <% end %>
 </ul>
 
-<a href="/lists/<%= @list.id %>/tasks/new">Add a task</a>
+<p><%= link_to "Add another task", new_list_task_path(@list), :class => "btn btn-default" %></p>
+<p><%= link_to "Delete List", list_path(@list),
+                        :data => {:confirm => "Are you sure?",
+                        :method => "delete"},
+                        :class => "btn btn-danger" %></p>
 
-<p><a href="/lists/<%= @list.id %>"
-  data-confirm="You sure?"
-  data-method="delete"
-  rel="nofollow">Delete list</a></p>
-<p><a href="/lists">Return to lists</a></p>
+<p><%= link_to "Return to lists", lists_path, :class => "btn btn-default" %></p>
