@@ -1,2 +1,7 @@
-<label for="list_name">Name</label>
-<input id="list_name" name="name" type="text" value="<%= @list.name %>">
+<%= form_for(@list) do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

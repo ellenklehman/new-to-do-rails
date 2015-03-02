@@ -4,8 +4,4 @@
 
 <%= render('layouts/errors', :object => @task) %>
 
-<form action="/lists/<%= @task.list.id %>/tasks/<%= @task.id %>" method="post">
-  <input name="_method" type="hidden" value="patch">
-  <%= render('form') %>
-  <button>Update Task</button>
-</form>
+<%= render('form') %>

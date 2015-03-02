@@ -4,7 +4,4 @@
 
 <%= render('layouts/errors', :object => @task) %>
 
-<form action="/lists/<%= @task.list.id %>/tasks" method="post">
-  <%= render('form') %>
-  <button>Add task</button>
-</form>
+<%= render('form') %>

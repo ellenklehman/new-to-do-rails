@@ -1,2 +1,7 @@
-<label for="description">Description</label>
-<input id="description" name="description" type="text" value="<%= @task.description %>">
+<%= form_for(@task) do |f| %>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>
