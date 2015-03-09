@@ -16,12 +16,14 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @list = List.find(params[:list_id])
     @task = Task.find(params[:id])
   end
 
   def update
+    @list = List.find(params[:list_id])
     @task = Task.find(params[:id])
-    if @task.update(description: params[:description])
+    if @task.update(params[:task])
       flash[:notice] = "Task successfully updated!"
       redirect_to list_path(@task.list)
     else
