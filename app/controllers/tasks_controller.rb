@@ -1,11 +1,12 @@
 class TasksController < ApplicationController
   def new
-    list = List.find(params[:list_id])
-    @task = list.tasks.new
+    @list = List.find(params[:list_id])
+    @task = @list.tasks.new
   end
 
   def create
-    @task = Task.new(description: params[:description], list_id: params[:list_id])
+    @list = List.find(params[:list_id])
+    @task = @list.task.new(params[:task])
     if @task.save
       flash[:notice] = "Task successfully added!"
       redirect_to list_path(@task.list)

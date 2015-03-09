@@ -12,7 +12,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(name: params[:name])
+    @list = List.new(params[:list])
     if @list.save
       flash[:notice] = "List successfully added!"
       redirect_to lists_path
