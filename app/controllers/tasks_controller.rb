@@ -6,7 +6,7 @@ class TasksController < ApplicationController
 
   def create
     @list = List.find(params[:list_id])
-    @task = @list.task.new(params[:task])
+    @task = @list.tasks.new(params[:task])
     if @task.save
       flash[:notice] = "Task successfully added!"
       redirect_to list_path(@task.list)

@@ -21,7 +21,7 @@
   <p>There are no tasks yet!</p>
 <% end %>
 
-<p><%= link_to "Add another task", new_list_task_path(@list), :class => "btn btn-default" %></p>
+<p><%= link_to "Add a task", new_list_task_path(@list), :class => "btn btn-default" %></p>
 <p><%= link_to "Delete List", list_path(@list),
                         :data => {:confirm => "Are you sure?",
                         :method => "delete"},
