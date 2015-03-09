@@ -27,7 +27,7 @@ class ListsController < ApplicationController
 
   def update
     @list = List.find(params[:id])
-    if @list.update(name: params[:name])
+    if @list.update(params[:list])
       flash[:notice] = "List successfully updated!"
       redirect_to list_path(@list)
     else
